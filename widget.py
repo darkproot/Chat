@@ -150,14 +150,15 @@ class MessageDisplay(Column):
         self.spacing = 20
         self.message: TextField = TextField(
             hint_text='Message...',
-            color=ft.colors.BLACK54,
+            color=ft.colors.WHITE,    #BLACK54
             suffix_icon=ft.icons.EMOJI_EMOTIONS,
-            hint_style=ft.TextStyle(color=ft.colors.GREEN_200),
+            hint_style=ft.TextStyle(color=ft.colors.WHITE60),
             cursor_color=ft.colors.GREEN_500,
-            selection_color=ft.colors.GREEN_50,  
+            selection_color=ft.colors.GREEN_200,  
             multiline=True, 
             max_lines=2,
-            border_color=ft.colors.GREEN_400,
+            text_style=ft.TextStyle(weight=ft.FontWeight.W_500),
+            border_color=ft.colors.GREEN_500,
             border_radius=20)
         self.messageSend = SendButton(func=self.addMessage)
         self.messageInput = Container(
@@ -165,10 +166,10 @@ class MessageDisplay(Column):
                 controls=[self.message, self.messageSend],
                 alignment="center",
                 ),
-            bgcolor=ft.colors.WHITE, #"#fdfcfb"
+            bgcolor=ft.colors.WHITE30, #"#fdfcfb"
             border_radius=20,
             padding=7,
-            shadow=ft.BoxShadow(color="smookblack", spread_radius=10, blur_radius=50, offset=ft.Offset(5,5))
+            shadow=ft.BoxShadow(color=ft.colors.BLACK12, spread_radius=1, blur_radius=5, offset=ft.Offset(5,5))
             )
         
         self.chat = Column(controls=[Container(width=200, height=100)]) 
@@ -183,7 +184,7 @@ class MessageDisplay(Column):
             padding=10,
             bgcolor=ft.colors.WHITE38,
             border_radius=20,
-            shadow=ft.BoxShadow(color="smookblack", spread_radius=10, blur_radius=50, offset=ft.Offset(5,5))
+            # shadow=ft.BoxShadow(color="smookblack", spread_radius=10, blur_radius=50, offset=ft.Offset(5,5))
         )
 
         self.controls = [self.chatContainer, self.messageInput]
